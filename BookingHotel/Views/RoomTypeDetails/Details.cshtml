@@ -1,0 +1,58 @@
+﻿@model BookingHotel.Models.RoomTypeDetail
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "_ManagementLayout";
+}
+<link href="~/css/create.css" rel="stylesheet" />
+<h1>Details</h1>
+
+<div>
+    <h4>RoomTypeDetail</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.description)
+        </dd>
+        <dd class="col-sm-4"></dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.maxPeople)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.maxPeople)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.view)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.view)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.size)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.size)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.bed)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.bed)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RoomType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RoomType.roomTypeID)
+        </dd>
+    </dl>
+</div>
+<div>
+      <a asp-action="Edit" asp-route-id="@Model?.roomTypeDetailID" class="btn btn-warning btn-icon">Edit</a> |
+       <a asp-action="Index" class="btn btn-secondary btn-icon mr-2">
+            <i class="fas fa-list"></i> Back to List
+       </a>
+</div>

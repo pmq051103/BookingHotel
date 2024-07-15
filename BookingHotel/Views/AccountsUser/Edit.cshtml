@@ -1,0 +1,84 @@
+﻿@model BookingHotel.Models.Account
+
+@{
+    Layout = "_ManagementLayout";
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="mb-4">Edit Account</h1>
+<link href="~/css/create.css" rel="stylesheet" />
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Edit Account</h4>
+        <hr />
+
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="accountID" />
+
+            <dl class="row">
+                <dt class="col-sm-3">
+                    <label asp-for="username" class="control-label"></label>
+                </dt>
+                <dd class="col-sm-6">
+                    <input asp-for="username" class="form-control" readonly/>
+                    <span asp-validation-for="username" class="text-danger"></span>
+                </dd>
+                <dt class="col-sm-3"></dt>
+                <dt class="col-sm-3">
+                    <label asp-for="password" class="control-label"></label>
+                </dt>
+                <dd class="col-sm-6">
+                    <input asp-for="password" class="form-control" />
+                    <span asp-validation-for="password" class="text-danger"></span>
+                </dd>
+                <dt class="col-sm-3"></dt>
+                <dt class="col-sm-3">
+                    <label asp-for="name" class="control-label"></label>
+                </dt>
+                <dd class="col-sm-6">
+                    <input asp-for="name" class="form-control" />
+                    <span asp-validation-for="name" class="text-danger"></span>
+                </dd>
+                <dt class="col-sm-3"></dt>
+                <dt class="col-sm-3">
+                    <label asp-for="phoneNumber" class="control-label"></label>
+                </dt>
+                <dd class="col-sm-6">
+                    <input asp-for="phoneNumber" class="form-control" />
+                    <span asp-validation-for="phoneNumber" class="text-danger"></span>
+                </dd>
+                <dt class="col-sm-3"></dt>
+                <dt class="col-sm-3">
+                    <label asp-for="role" class="control-label"></label>
+                </dt>
+                <dd class="col-sm-6">
+                    <select asp-for="role" class="form-control">
+                        <option value="1">Admin</option>
+                        <option value="0">User</option>
+                    </select>
+                    <span asp-validation-for="role" class="text-danger"></span>
+                </dd>
+            </dl>
+        <dt class="col-sm-3"></dt>
+        <div class="mt-4">
+            <input type="submit" value="Save" class="btn btn-primary btn-icon" /> |
+            <a asp-action="Index" class="btn btn-secondary btn-icon mr-2">
+                <i class="fas fa-list"></i> Back to List
+            </a>
+        </div>
+        </form>
+    </div>
+    @if (TempData["ErrorMessage"] != null)
+    {
+         <div class="alert alert-danger" style="margin-top:10px">
+            @TempData["ErrorMessage"]
+         </div>
+    }
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

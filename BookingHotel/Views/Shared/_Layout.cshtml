@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewData["Title"] - BookingHotel</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/TemplateUser/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="~/TemplateUser/css/animate.css">
+
+    <link rel="stylesheet" href="~/TemplateUser/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/TemplateUser/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/TemplateUser/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="~/TemplateUser/css/aos.css">
+
+    <link rel="stylesheet" href="~/TemplateUser/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="~/TemplateUser/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/TemplateUser/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="~/TemplateUser/css/flaticon.css">
+    <link rel="stylesheet" href="~/TemplateUser/css/icomoon.css">
+    <link rel="stylesheet" href="~/TemplateUser/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Habor<span>Light</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="Home" asp-action="OurRooms" class="nav-link">Our Rooms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="Home" asp-action="Restaurant" class="nav-link">Restaurant</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="Home" asp-action="About" class="nav-link">About Us</a>
+                    </li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Hello, @User.Identity.Name
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="userDropdown">
+                                @if (User.IsInRole("1")) 
+                                {
+                                    <a class="dropdown-item" asp-area="" asp-controller="Request" asp-action="Index">Admin</a>
+                                }else{
+                                    <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="UserProfile">Booking history</a>
+                                    
+                                }
+                                <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="ChangePassword">Change Password</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+                            </div>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Account
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END nav -->
+
+    @RenderBody()
+
+    <footer class="ftco-footer ftco-section img" style="background-image: url('@Url.Content("~/templateuser/images/bg_4.jpg")');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Your Hotel Name</h2>
+                        <p>HarBor Light is a luxurious retreat located in Binh Dinh. Discover our exceptional service and amenities.</p>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-5">
+                        <h2 class="ftco-heading-2">Explore</h2>
+                        <ul class="list-unstyled">
+                            <li><a asp-controller="Home" asp-action="OurRooms" class="py-2 d-block">Rooms & Suites</a></li>
+                            <li><a asp-controller="Home" asp-action="Restaurant" class="py-2 d-block">Dining</a></li>
+                            <li><a href="#" class="py-2 d-block">Spa & Wellness</a></li>
+                            <li><a href="#" class="py-2 d-block">Special Offers</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Legal</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="py-2 d-block">Privacy Policy</a></li>
+                            <li><a href="#" class="py-2 d-block">Terms of Service</a></li>
+                            <li><a href="#" class="py-2 d-block">Cookies Policy</a></li>
+                            <li><a href="#" class="py-2 d-block">Disclaimer</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Contact Us</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon icon-map-marker"></span><span class="text">170 An Duong Vuonng, Nguyen Van Cu, Quy Nhon City, Binh Dinh</span></li>
+                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">0346991600</span></a></li>
+                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">Nhom3MVC@gmail.com</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>
+                        &copy; <script>document.write(new Date().getFullYear());</script> HarBor Light. All rights reserved | Designed with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="#" target="_blank">Peonyy~</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+
+
+    <script src="~/TemplateUser/js/jquery.min.js"></script>
+    <script src="~/TemplateUser/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/TemplateUser/~/TemplateUser/js/popper.min.js"></script>
+    <script src="~/TemplateUser/js/bootstrap.min.js"></script>
+    <script src="~/TemplateUser/js/jquery.easing.1.3.js"></script>
+    <script src="~/TemplateUser/js/jquery.waypoints.min.js"></script>
+    <script src="~/TemplateUser/js/jquery.stellar.min.js"></script>
+    <script src="~/TemplateUser/js/owl.carousel.min.js"></script>
+    <script src="~/TemplateUser/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/TemplateUser/js/aos.js"></script>
+    <script src="~/TemplateUser/js/jquery.animateNumber.min.js"></script>
+    <script src="~/TemplateUser/js/bootstrap-datepicker.js"></script>
+    <script src="~/TemplateUser/js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="~/TemplateUser/js/google-map.js"></script>
+    <script src="~/TemplateUser/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

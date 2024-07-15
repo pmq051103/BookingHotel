@@ -1,0 +1,51 @@
+﻿@model BookingHotel.Models.ComboSale
+@{
+    ViewData["Title"] = "FriendlyServiceCBSDetail";
+}
+<div class="hero-wrap" style="background-image: url('/TemplateUser/images/bg_3.jpg');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text d-flex align-itemd-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
+                <div class="text">
+                    <p class="breadcrumbs mb-2" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="Home">Home</a></span> <span class="mr-2"><a href="CozyRoomsCBS">CozyRoomsCBS</a></span> <span>Cozy Rooms</span></p>
+                    <h1 class="mb-4 bread">Cozy Rooms</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="ftco-section ftco-degree-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 ftco-animate">
+                <h2 class="mb-3">@Model.title</h2>
+                <p>@Model.ShortContent</p>
+                <p>
+                    <img src="~/hinhanhsale/@Model.image" alt="" class="img-fluid">
+                </p>
+                <p>@Model.content</p>
+            </div> <!-- .col-md-8 -->
+            <div class="col-lg-4 sidebar ftco-animate pl-md-5 fadeInUp ftco-animated">
+                <div class="sidebar-box ftco-animate">
+                    <div class="categories">
+                        <h3>Categories</h3>
+                        <li><a href="FriendlyServiceCBS">Friendly Servic</a></li>
+                        <li><a href="GetBreakfasCBS">Get Breakfas</a></li>
+                        <li><a href="TransferServicesCBS">Transfer Services</a></li>
+                        <li><a href="SPACBS">Suits &amp; SPA</a></li>
+                      
+                    </div>
+                </div>
+                <div class="sidebar-box ftco-animate">
+                    <h3>Cozy Rooms</h3>
+                    <p>Our Cozy Rooms service is committed to providing you with a cozy, comfortable and memorable vacation space. Come and experience the difference at our hotel, where you are always welcomed like family.</p>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</section> <!-- .section -->

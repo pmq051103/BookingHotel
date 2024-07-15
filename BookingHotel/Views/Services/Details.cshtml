@@ -1,0 +1,45 @@
+﻿@model BookingHotel.Models.Service
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "_ManagementLayout";
+}
+<link href="~/css/create.css" rel="stylesheet" />
+<h1>Details</h1>
+
+<div>
+    <h4>Service</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.roomHighlights)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.roomHighlights)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.bedAndBath)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.bedAndBath)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.servicesAndAmenities)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.servicesAndAmenities)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RoomTypeDetail)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RoomTypeDetail.roomTypeDetailID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.serviceID" class="btn btn-warning btn-icon">Edit</a> |
+    <a asp-action="Index" class="btn btn-secondary btn-icon mr-2">
+        <i class="fas fa-list"></i> Back to List
+    </a>
+</div>

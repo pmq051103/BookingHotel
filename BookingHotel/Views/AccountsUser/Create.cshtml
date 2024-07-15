@@ -1,0 +1,71 @@
+﻿@model BookingHotel.Models.Account
+
+@{
+    Layout = "_ManagementLayout";
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+<link href="~/css/create.css" rel="stylesheet" />
+<h4>Account</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create" class="my-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="username" class="control-label">Username:</label>
+                <input asp-for="username" class="form-control" />
+                <span asp-validation-for="username" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="password" class="control-label">Password:</label>
+                <input asp-for="password" class="form-control" />
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="name" class="control-label">Name:</label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="phoneNumber" class="control-label">Phone Number:</label>
+                <input asp-for="phoneNumber" class="form-control" />
+                <span asp-validation-for="phoneNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="role" class="control-label">Role:</label>
+                <select asp-for="role" class="form-control">
+                    <option value="0">User</option>
+                    <option value="1">Admin</option>
+                </select>
+                <span asp-validation-for="role" class="text-danger"></span>
+            </div>
+
+            <div class="form-group btn">
+                <button type="submit" class="btn btn-primary mr-2 btn-icon">
+                    Create
+                </button> |
+                <a asp-action="Index" class="btn btn-secondary btn-icon mr-2">
+                    <i class="fas fa-list"></i> Back to List
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+@if (TempData["ErrorMessage"] != null)
+{
+     <div class="alert alert-danger" style="margin-top:10px">
+        @TempData["ErrorMessage"]
+     </div>
+}
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

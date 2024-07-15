@@ -1,0 +1,88 @@
+﻿.gray {
+    border: 5px solid #ddd;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .gray:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+/*history*/
+.carousel-image {
+    border: 5px solid #ddd;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .carousel-image:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+.ftco-section {
+    padding: 6em 0;
+}
+
+.ftco-no-pb {
+    padding-bottom: 0 !important;
+}
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.staff {
+    text-align: center;
+}
+
+    .staff .img {
+        width: 100%;
+        height: 0;
+        padding-top: 100%;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .staff .info {
+        padding: 1em 0;
+    }
+
+    .staff .img {
+        width: 100%;
+        height: 0;
+        padding-top: 100%;
+        background-size: cover;
+        background-position: center center;
+        transition: transform 0.3s ease;
+    }
+
+        .staff .img:hover {
+            transform: scale(1.1);
+        }
+
+.gray img {
+    transition: transform 0.3s ease;
+}
+
+    .gray img:hover {
+        transform: scale(1.1);
+    }
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.insta-img {
+    width: 100%;
+    height: auto;
+}

@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Our Room";
+}
+@model IEnumerable<BookingHotel.Models.RoomType>
+
+<div class="hero-wrap" style="background-image: url('@Url.Content("~/templateuser/images/bg_3.jpg")');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text d-flex align-itemd-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
+                <div class="text">
+                    <p class="breadcrumbs mb-2"><span class="mr-2"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></span> <span>OurRooms</span></p>
+                    <h1 class="mb-4 bread">Rooms</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="ftco-section ftco-no-pb ftco-room">
+    <div class="container-fluid px-0">
+        <div class="row no-gutters justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <span class="subheading">Harbor Lights Rooms</span>
+                <h2 class="mb-4">Accommodations</h2>
+            </div>
+        </div>
+        <div class="row no-gutters">
+            @foreach (var item in Model)
+            {
+
+                <div class="col-lg-6">
+                    <div class="room-wrap d-md-flex ftco-animate">
+                        <a href="#" class="img" style="background-image: url('@Html.DisplayFor(modelItem => item.RoomTypeDetail.Images.First().imagePath)');"></a>
+                        <div class="half left-arrow d-flex align-items-center">
+                            <div class="text p-4 text-center">
+                                <p class="mb-0"><span class="price mr-1">$@Html.DisplayFor(modelItem => item.price)</span> <span class="per">per night</span></p>
+                                <h3 class="mb-3"><a asp-controller="Home" asp-action="RoomDetail" asp-route-id="@item.roomTypeID">@Html.DisplayFor(modelItem => item.roomTypeName)</a></h3>
+                                <p class="pt-1"><a asp-controller="Home" asp-action="RoomDetail" asp-route-id="@item.roomTypeID" class="btn-custom px-3 py-2 rounded">View Details <span class="icon-long-arrow-right"></span></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

@@ -1,0 +1,48 @@
+﻿@model BookingHotel.Models.Menu
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "_ManagementLayout";
+}
+<link href="~/css/create.css" rel="stylesheet" />
+<h1>Details</h1>
+
+<div>
+    <h4>Menu</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dishName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dishName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dishDescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dishDescription)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dishPrice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dishPrice)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dishImage)
+        </dt>
+        <dd class = "col-sm-12">
+            @if (!string.IsNullOrEmpty(Model.dishImage))
+            {
+                <img src="@Model.dishImage" class="img-fluid" alt="Current Image" style="width : 300px ; height: 200px" />
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ID" class="btn btn-warning btn-icon">Edit</a> |
+    <a asp-action="Index" class="btn btn-secondary btn-icon mr-2">
+        <i class="fas fa-list"></i> Back to List
+    </a>
+</div>

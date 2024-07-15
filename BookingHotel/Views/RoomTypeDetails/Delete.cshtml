@@ -1,0 +1,60 @@
+﻿@model BookingHotel.Models.RoomTypeDetail
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "_ManagementLayout";
+}
+<link href="~/css/create.css" rel="stylesheet" />
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>RoomTypeDetail</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.maxPeople)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.maxPeople)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.view)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.view)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.size)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.size)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.bed)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.bed)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RoomType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RoomType.roomTypeID)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="roomTypeDetailID" />
+        <input type="submit" value="Delete" class="btn btn-danger btn-icon" /> |
+        <a asp-action="Index" class="btn btn-secondary btn-icon mr-2">
+            <i class="fas fa-list"></i> Back to List
+        </a>
+    </form>
+</div>

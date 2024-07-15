@@ -1,0 +1,112 @@
+﻿<style >
+.btn-primary {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    color: white;
+}
+
+.btn-icon {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    color: white;
+}
+
+.btn-info {
+    background-color: #17a2b8;
+}
+
+.btn-success {
+    background-color: #28a745;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.custom-form {
+    display: flex;
+    gap: 10px;
+}
+
+    .custom-form .form-group {
+        margin-right: 0;
+    }
+
+    .custom-form input[type="text"],
+    .custom-form select,
+    .custom-form button {
+        height: 30px;
+        padding: 5px 10px;
+        font-size: 14px;
+        border-radius: 5px;
+        border: 1px solid #ced4da;
+    }
+
+    .custom-form .btn-primary {
+        display: inline-flex !important;
+        align-items: center;
+        height: 30px !important;
+        padding: 5px 10px;
+        font-size: 14px;
+        border-radius: 5px !important;
+        background-color: #007bff;
+        color: white;
+        border: none;
+    }
+
+        .custom-form .btn-primary i {
+            margin-right: 5px;
+        }
+
+    .custom-form .btn-info {
+        display: inline-flex;
+        align-items: center;
+        height: 30px;
+        padding: 5px 10px;
+        font-size: 14px;
+        border-radius: 5px;
+        background-color: #17a2b8;
+        color: white;
+        border: none;
+    }
+
+.table {
+    margin-top: 20px;
+}
+
+    .table th,
+    .table td {
+        vertical-align: middle;
+    }
+
+.btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 30px;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    color: white;
+}
+
+    .btn-icon i {
+        margin-right: 5px;
+    }
+
+.pagination {
+    margin-top: 20px;
+}
+
+    .pagination .page-item.disabled .page-link {
+        color: #6c757d;
+        pointer-events: none;
+        cursor: auto;
+        background-color: #fff;
+        border-color: #dee2e6;
+    }
+
+</style >

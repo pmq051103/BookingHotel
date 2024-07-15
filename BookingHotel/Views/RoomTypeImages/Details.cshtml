@@ -1,0 +1,33 @@
+﻿@model BookingHotel.Models.RoomTypeImage
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "_ManagementLayout";
+}
+<link href="~/css/create.css" rel="stylesheet" />
+<h1>Details</h1>
+
+<div>
+    <h4>RoomTypeImage</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.imagePath)
+        </dt>
+        <dd class = "col-sm-10">
+            <img  src="@Html.DisplayFor(Model => Model.imagePath)" />
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RoomTypeDetail)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RoomTypeDetail.RoomType.roomTypeName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ID" class="btn btn-warning btn-icon">Edit</a> |
+            <a asp-action="Index" class="btn btn-secondary btn-icon mr-2">
+                <i class="fas fa-list"></i> Back to List
+            </a>
+</div>

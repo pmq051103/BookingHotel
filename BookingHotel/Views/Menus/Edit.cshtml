@@ -1,0 +1,69 @@
+﻿@model BookingHotel.Models.Menu
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "_ManagementLayout";
+}
+<link href="~/css/create.css" rel="stylesheet" />
+<style>
+
+
+</style>
+<h1>Edit</h1>
+
+<h4>Menu</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="dishName" class="control-label"></label>
+                <input asp-for="dishName" class="form-control" />
+                <span asp-validation-for="dishName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dishDescription" class="control-label"></label>
+                <textarea asp-for="dishDescription" class="form-control"></textarea>
+                <span asp-validation-for="dishDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dishPrice" class="control-label">Price ($)</label>
+                <input asp-for="dishPrice" class="form-control" />
+                <span asp-validation-for="dishPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dishImage" class="control-label"></label>
+                <input asp-for="dishImage" class="form-control" type="file" />
+                @if (!string.IsNullOrEmpty(Model.dishImage))
+                {
+                    <small class="form-text text-muted">
+                        Current Image Path: <a href="@Model.dishImage" target="_blank">@Model.dishImage</a>
+                    </small>
+                }
+                <span asp-validation-for="dishImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary btn-icon" /> |
+                <a asp-action="Index" class="btn btn-secondary btn-icon mr-2"> 
+                    <i class="fas fa-list"></i> Back to List
+                </a>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-3">
+        @if (!string.IsNullOrEmpty(Model.dishImage))
+        {
+            <img src="@Model.dishImage" class="img-fluid" alt="Current Image" />
+        }
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

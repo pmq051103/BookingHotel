@@ -1,0 +1,57 @@
+﻿@model BookingHotel.Models.ComboSale
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "_ManagementLayout";
+}
+<link href="~/css/create.css" rel="stylesheet" />
+<h1>Details</h1>
+
+<div>
+    <h4>ComboSale</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.genre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.genre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ShortContent)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ShortContent)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.content)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.content)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.image)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.image)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+        <dd class = "col-sm-10">
+            $@Html.DisplayFor(model => model.price)
+        </dd>
+    </dl>
+</div>
+<div class="mt-4">
+            <a asp-action="Edit" asp-route-id="@Model?.comboSaleID" class="btn btn-warning btn-icon">Edit</a> |
+            <a asp-action="Index" class="btn btn-secondary btn-icon mr-2">
+                <i class="fas fa-list"></i> Back to List
+            </a>
+        </div>

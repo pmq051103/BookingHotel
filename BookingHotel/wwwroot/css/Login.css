@@ -1,0 +1,39 @@
+﻿.box {
+    margin-bottom: 40px;
+    margin-top: 40px;
+    margin-left: 50px;
+    width: 50%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.wrap-login100 {
+    width: 80%; /* Chiều rộng của form */
+    max-width: 500px; /* Độ rộng tối đa */
+    height: 630px;
+}
+
+.form-control {
+    width: 100%;
+}
+
+.register-link {
+    text-align: right;
+    color: white;
+}
+
+.register-link-text {
+    color: #FFFF00; /* Màu xanh đậm */
+    font-weight: bold;
+    text-decoration: none;
+}
+
+    .register-link-text:hover {
+        color: #0056b3; /* Màu xanh khi hover */
+        text-decoration: underline;
+    }
+
+.login100-form-btn {
+    margin-top: 10px;
+}

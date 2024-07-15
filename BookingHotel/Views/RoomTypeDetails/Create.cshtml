@@ -1,0 +1,62 @@
+﻿@model BookingHotel.Models.RoomTypeDetail
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "_ManagementLayout";
+}
+<link href="~/css/create.css" rel="stylesheet" />
+<h1>Create</h1>
+
+<h4>RoomTypeDetail</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="roomTypeID" class="control-label"></label>
+                <select asp-for="roomTypeID" class="form-control" asp-items="ViewBag.roomTypeID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="description" class="control-label"></label>
+                <input asp-for="description" class="form-control" />
+                <span asp-validation-for="description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="maxPeople" class="control-label"></label>
+                <input asp-for="maxPeople" class="form-control" />
+                <span asp-validation-for="maxPeople" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="view" class="control-label"></label>
+                <input asp-for="view" class="form-control" />
+                <span asp-validation-for="view" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="size" class="control-label"></label>
+                <input asp-for="size" class="form-control" />
+                <span asp-validation-for="size" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="bed" class="control-label"></label>
+                <input asp-for="bed" class="form-control" />
+                <span asp-validation-for="bed" class="text-danger"></span>
+            </div>
+             <div class="form-group btn">
+                <button type="submit" class="btn btn-primary mr-2 btn-icon">Create</button>|
+                <a asp-action="Index" class="btn btn-secondary btn-icon mr-2"> 
+                    <i class="fas fa-list"></i> Back to List
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger" style="margin-top:10px">
+        @TempData["ErrorMessage"]
+    </div>
+}
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,137 @@
+﻿@model PaginatedList<BookingHotel.Models.Request>
+
+@{
+    ViewData["Title"] = "Requests Management";
+    Layout = "_ManagementLayout";
+}
+<link href="~/css/rq.css" rel="stylesheet" />
+
+
+<h1>Requests Management</h1>
+<a asp-action="ExportToExcel" asp-route-searchString="@ViewData["CurrentFilter"]" asp-route-statusFilter="@ViewData["StatusFilter"]" class="btn btn-success" style="border-radius : 5px; width: 170px; height : 40px">
+    <i class="fas fa-file-excel"></i> Export to Excel
+</a>
+<br>
+<br>
+<form asp-controller="Request" asp-action="Index" class="custom-form">
+    <div class="form-group">
+        <label for="searchString" class="mr-2">Search:</label>
+        <input type="text" id="searchString" name="SearchString" placeholder="PhoneNumber..." />
+    </div>
+    <div class="form-group">
+        <label for="statusFilter" class="mr-2">Status:</label>
+        <select id="statusFilter" name="statusFilter">
+            <option value="">All</option>
+            <option value="Waiting">Waiting</option>
+            <option value="Apply">Apply</option>
+            <option value="Cancelled">Cancelled</option>
+        </select>
+    </div>
+    <div class="form-group">
+    <button type="submit" class="btn btn-primary">
+        <i class="fas fa-filter"></i> Filter
+    </button>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th><a asp-action="Index" asp-route-sortOrder="@ViewData["DateSort"]" asp-route-currentFilter="@ViewData["CurrentFilter"]" asp-route-statusFilter="@ViewData["StatusFilter"]">DateCheckIn</a></th>
+            <th>DateCheckOut</th>
+            <th>GuestCount</th>
+            <th><a asp-action="Index" asp-route-sortOrder="@ViewData["RoomTypeSort"]" asp-route-currentFilter="@ViewData["CurrentFilter"]" asp-route-statusFilter="@ViewData["StatusFilter"]">RoomType</a></th>
+            <th>Status</th>
+            <th>PhoneNumber</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (!Model.Any())
+        {
+            <tr>
+                <td colspan="7">No search results...</td>
+            </tr>
+        }
+        @foreach (var request in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => request.dateCheckIn)</td>
+                <td>@Html.DisplayFor(modelItem => request.dateCheckOut)</td>
+                <td>@Html.DisplayFor(modelItem => request.guestCount)</td>
+                <td>@Html.DisplayFor(modelItem => request.RoomType.roomTypeName)</td>
+                <td>
+                    @if (request.status == "Cancelled")
+                    {
+                        <span class="status-cancel">@Html.DisplayFor(modelItem => request.status)</span>
+                    }
+                    else if (request.status == "Apply")
+                    {
+                        <span class="status-apply">@Html.DisplayFor(modelItem => request.status)</span>
+                    }
+                    else if (request.status == "Waiting")
+                    {
+                        <span class="status-waiting">@Html.DisplayFor(modelItem => request.status)</span>
+                    }
+                </td>
+                <td>@Html.DisplayFor(modelItem => request.Account.phoneNumber)</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@request.requestID" class="btn btn-info btn-icon">
+                        <i class="fas fa-eye"></i>
+                    </a>
+                    @if (request.status == "Waiting")
+                    {
+                        <a asp-action="Approve" asp-route-id="@request.requestID" class="btn btn-success btn-icon" >
+                            <i class="fas fa-check"></i>
+                        </a>
+                        <a asp-action="Cancel" asp-route-id="@request.requestID" class="btn btn-danger btn-icon">
+                            <i class="fas fa-times"></i>
+                        </a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
+            <a asp-action="Index"
+               asp-route-sortOrder="@ViewData["CurrentSort"]"
+               asp-route-pageNumber="@(Model.PageIndex - 1)"
+               asp-route-currentFilter="@ViewData["CurrentFilter"]"
+               asp-route-statusFilter="@ViewData["StatusFilter"]"
+               class="page-link">
+                Previous
+            </a>
+        </li>
+        @for (int i = 1; i <= Model.TotalPages; i++)
+        {
+        <li class="page-item @(i == Model.PageIndex ? "active" : "")">
+            <a class="page-link"
+           asp-action="Index"
+           asp-route-sortOrder="@ViewData["CurrentSort"]"
+               asp-route-pageNumber="@i"
+           asp-route-currentFilter="@ViewData["CurrentFilter"]"
+           asp-route-statusFilter="@ViewData["StatusFilter"]">@i</a>
+        </li>
+        }
+
+        <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
+            <a asp-action="Index"
+               asp-route-sortOrder="@ViewData["CurrentSort"]"
+               asp-route-pageNumber="@(Model.PageIndex + 1)"
+               asp-route-currentFilter="@ViewData["CurrentFilter"]"
+               asp-route-statusFilter="@ViewData["StatusFilter"]"
+               class="page-link">
+                Next
+            </a>
+        </li>
+    </ul>
+</nav>
+@if (TempData["CancelMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["CancelMessage"]
+    </div>
+}

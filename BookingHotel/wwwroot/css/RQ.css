@@ -1,0 +1,77 @@
+﻿.btn-primary {
+    padding: 5px 10px;
+    font-size: 10px;
+    border-radius: 5px;
+}
+
+.btn-icon {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    color: white;
+}
+
+.btn-info {
+    background-color: #17a2b8;
+}
+
+.btn-success {
+    background-color: #28a745;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.status-cancel {
+    background-color: red;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.status-apply {
+    background-color: green;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.status-waiting {
+    background-color: gray;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.custom-form {
+    display: flex;
+    gap: 10px;
+}
+
+    .custom-form .form-group {
+        margin-right: 0;
+    }
+
+    .custom-form input[type="text"],
+    .custom-form select,
+    .custom-form button {
+        height: 30px;
+        padding: 5px 10px;
+        font-size: 14px;
+        border-radius: 5px;
+        border: 1px solid #ced4da;
+    }
+
+    .custom-form .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        height: 30px;
+        padding: 5px 10px;
+        font-size: 14px;
+        border-radius: 5px;
+    }
+
+        .custom-form .btn-primary i {
+            margin-right: 5px;
+        }

@@ -1,0 +1,65 @@
+﻿@model BookingHotel.ViewModels.AccountViewModels
+<link href="~/css/profile.css" rel="stylesheet" />
+<div class="hero-wrap" style="background-image: url('@Url.Content("~/templateuser/images/bg_3_coppy.jpg")'); height:100px">
+</div>
+
+<div class="box">
+<div class="container1">
+    <h2>User Profile</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <form asp-action="UserProfile" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Username" />
+
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label" ></label>
+                        <input asp-for="Name" class="form-control" readonly />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="PhoneNumber" class="control-label"></label>
+                        <input asp-for="PhoneNumber" class="form-control" readonly/>
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+                <h2>Booking History</h2>
+                <table class="table">
+                <thead>
+                    <tr>
+                    <th>Code</th>
+                    <th>Check-In Date</th>
+                    <th>Check-Out Date</th>
+                    <th>Guest Count</th>
+                    <th>Room Type</th>
+                    <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Requests.Count > 0)
+                      {
+                         @foreach (var request in Model.Requests){
+                             <tr>
+                                <td>@request.requestID</td>
+                                <td>@request.dateCheckIn.ToString("dd/MM/yyyy")</td>
+                                <td>@request.dateCheckOut.ToString("dd/MM/yyyy")</td>
+                                <td>@request.guestCount</td>
+                                <td>@request.RoomType.roomTypeName</td>
+                                <td>@request.status</td>
+                             </tr>
+                                }
+                       }else
+                          {
+                             <tr>
+                                  <td colspan="6" style="text-align:center;">No bookings available</td>
+                            </tr>
+                          }
+
+                </tbody>
+            </table>
+               
+            </form>
+        </div>
+    </div>
+</div>
+</div>

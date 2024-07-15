@@ -1,0 +1,45 @@
+﻿.form-control,
+.select-wrap select,
+textarea {
+    border: 1px solid #000 !important;
+    border-radius: 5px;
+}
+
+.wrap {
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+#btn {
+    margin-left: 55%
+}
+
+.wrap input.form-control,
+.select-wrap select.form-control {
+    border: 1px solid #C0C0C0 !important;
+    width: 320px;
+    border-radius: 4px !important;
+    box-shadow: none !important;
+    padding-left: 10px;
+}
+
+.wrap textarea.form-control {
+    border: 1px solid #c0c0c0 !important;
+    border-radius: 4px !important;
+    box-shadow: none !important;
+    padding-left: 10px;
+}
+
+.form-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+    .form-logo h1 {
+        margin: 0;
+        font-size: 36px;
+        color: #333;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 700;
+    }

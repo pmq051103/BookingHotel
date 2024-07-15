@@ -1,0 +1,51 @@
+﻿@model BookingHotel.Models.ComboSale
+@{
+    ViewData["Title"] = "GetBreakfasCBSDetail";
+}
+<div class="hero-wrap" style="background-image: url('/TemplateUser/images/bg_3.jpg');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text d-flex align-itemd-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
+                <div class="text">
+                    <p class="breadcrumbs mb-2" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="Home">Home</a></span> <span class="mr-2"><a href="GetBreakfasCBS">GetBreakfasCBS</a></span> <span>Get Breakfas</span></p>
+                    <h1 class="mb-4 bread">Get Breakfast</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="ftco-section ftco-degree-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 ftco-animate">
+                <h2 class="mb-3">@Model.title</h2>
+                <p>@Model.ShortContent</p>
+                <p>
+                    <img src="~/hinhanhsale/@Model.image" alt="" class="img-fluid">
+                </p>
+                <p>@Model.content</p>
+            </div> <!-- .col-md-8 -->
+            <div class="col-lg-4 sidebar ftco-animate pl-md-5 fadeInUp ftco-animated">
+                <div class="sidebar-box ftco-animate">
+                    <div class="categories">
+                        <h3>Categories</h3>
+                        <li><a href="FriendlyServiceCBS">Friendly Servic</a></li>                       
+                        <li><a href="TransferServicesCBS">Transfer Services</a></li>
+                        <li><a href="SPACBS">Suits &amp; SPA</a></li>
+                        <li><a href="CozyRoomsCBS">Cozy Rooms</a></li>
+                    </div>
+                </div>
+                <div class="sidebar-box ftco-animate">
+                    <h3>Get Breakfase</h3>
+                    <p>Breakfast is not simply a meal but also an opportunity for customers to enjoy attentive care and dedicated service from the hotel. We always strive to bring a great breakfast experience, helping customers feel satisfied and ready for a new day full of energy.</p>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</section> <!-- .section -->

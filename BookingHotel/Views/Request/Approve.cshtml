@@ -1,0 +1,60 @@
+﻿@model BookingHotel.ViewModels.ApproveViewModel
+@{
+    Layout = "_ManagementLayout";
+}
+<link href="~/css/create.css" rel="stylesheet" />
+<h2>Approve the request</h2>
+
+<div class="row">
+    <div class="col-sm-12">
+        <h4>Requested information</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Request.RoomType.roomTypeName)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Request.RoomType.roomTypeName)</dd>
+
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Request.dateCheckIn)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Request.dateCheckIn)</dd>
+
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Request.dateCheckOut)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Request.dateCheckOut)</dd>
+        </dl>
+    </div>
+
+    <div class="col-sm-3">
+        <form asp-action="ConfirmApprove" method="post" class="needs-validation" novalidate>
+            <input type="hidden" name="requestId" value="@Model.Request.requestID" />
+
+            <div class="form-group">
+                <label for="roomId">Select Room</label>
+                <select name="roomId" id="roomId" class="form-control" required>
+                    <option value="">Room</option>
+                    @foreach (var room in Model.AvailableRooms)
+                    {
+                        <option value="@room.roomID">@room.roomName</option>
+                    }
+                </select>
+            </div>
+
+            @if (TempData["SuccessMessage"] == null)
+            {
+                <button type="submit" class="btn btn-primary btn-icon">Approve</button>
+                @: |
+            }  
+            <a asp-action="Index" class="btn btn-secondary btn-icon mr-2">
+                <i class="fas fa-list"></i> Back to List
+            </a>
+        </form>
+    </div>
+</div>
+
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success mt-3">@TempData["SuccessMessage"]</div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger mt-3">@TempData["ErrorMessage"]</div>
+}

@@ -1,0 +1,49 @@
+﻿@model BookingHotel.Models.Menu
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "_ManagementLayout";
+}
+<link href="~/css/create.css" rel="stylesheet" />
+
+<h1>Create Dish</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create" enctype="multipart/form-data" class="my-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="dishName" class="control-label">Dish Name</label>
+                <input asp-for="dishName" class="form-control" />
+                <span asp-validation-for="dishName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="dishDescription" class="control-label">Description</label>
+                <textarea asp-for="dishDescription" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="dishDescription" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="dishPrice" class="control-label">Price ($)</label>
+                <input asp-for="dishPrice" class="form-control" />
+                <span asp-validation-for="dishPrice" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="dishImage" class="control-label"></label>
+            <input asp-for="dishImage" class="form-control" type="file" />
+            <span asp-validation-for="dishImage" class="text-danger"></span>
+            </div>
+
+            <div class="form-group btn">
+                <button type="submit" class="btn btn-primary mr-2 btn-icon">Create</button>|
+                <a asp-action="Index" class="btn btn-secondary btn-icon mr-2"> 
+                    <i class="fas fa-list"></i> Back to List
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

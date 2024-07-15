@@ -1,0 +1,72 @@
+﻿@model BookingHotel.Models.Request
+
+@{
+    ViewData["Title"] = "Request Details";
+    Layout = "_ManagementLayout";
+}
+<link href="~/css/create.css" rel="stylesheet" />
+<h1 class="mb-4">Request Details</h1>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Request</h4>
+        <hr />
+
+        <dl class="row">
+            <dt class="col-sm-3">ID request</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.requestID)</dd>
+            <dt class="col-sm-3">Name</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Account.name)</dd>
+
+            <dt class="col-sm-3">Phone Number</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Account.phoneNumber)</dd>
+
+            <dt class="col-sm-3">Check-in Date</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.dateCheckIn)</dd>
+
+            <dt class="col-sm-3">Check-out Date</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.dateCheckOut)</dd>
+
+            <dt class="col-sm-3">Guest Count</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.guestCount)</dd>
+
+            <dt class="col-sm-3">Room Type</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.RoomType.roomTypeName)</dd>
+
+            <dt class="col-sm-3">Message</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.message)</dd>
+
+            <dt class="col-sm-3">Status</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.status)</dd>
+
+            @if (ViewBag.ApprovedRoomName != null)
+            {
+                <dt class="col-sm-3">Room:</dt>
+                <dd class="col-sm-9">@ViewBag.ApprovedRoomName</dd>
+            }
+        </dl>
+
+        <div class="mt-4">
+            <a asp-action="Index" class="btn btn-secondary btn-icon">
+                <i class="fas fa-list"></i> Back to List
+            </a>
+
+            @if (Model?.status == "Waiting")
+            {
+                <a asp-action="Approve" asp-route-id="@Model?.requestID" class="btn btn-success btn-icon">
+                    <i class="fas fa-check"></i> Approve
+                </a>
+                <a asp-action="Cancel" asp-route-id="@Model?.requestID" class="btn btn-danger btn-icon">
+                    <i class="fas fa-times"></i> Cancel
+                </a>
+            }
+        </div>
+    </div>
+</div>
+
+@if (TempData["CancelMessage"] != null)
+{
+    <div class="alert alert-success mt-4">
+        @TempData["CancelMessage"]
+    </div>
+}
